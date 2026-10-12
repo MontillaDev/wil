@@ -361,6 +361,8 @@ Con todo mi amor, hoy y siempre. ❤️`,
       return String(n).padStart(2, "0");
     }
 
+    let intervalo;
+
     function actualizar() {
       const ahora = new Date();
       let diff = objetivo.getTime() - ahora.getTime();
@@ -372,7 +374,7 @@ Con todo mi amor, hoy y siempre. ❤️`,
         elMin.textContent = "00";
         elSeg.textContent = "00";
         if (leyenda) leyenda.textContent = "¡Hoy es tu día! 🎉";
-        clearInterval(intervalo);
+        if (intervalo) clearInterval(intervalo);
         return;
       }
 
@@ -398,7 +400,7 @@ Con todo mi amor, hoy y siempre. ❤️`,
     }
 
     actualizar();
-    const intervalo = setInterval(actualizar, 1000);
+    intervalo = setInterval(actualizar, 1000);
   }
 
   // ============================================================
