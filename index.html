@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Una sorpresa de cumpleaños hecha con amor">
+  <meta name="theme-color" content="#f8e8ec">
+  <title>Feliz cumpleaños, mi amor</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       PANTALLA DE BIENVENIDA (sobre animado)
+       ============================================================ -->
+  <section id="bienvenida" class="bienvenida" aria-label="Pantalla de bienvenida">
+    <div class="bienvenida-fondo" aria-hidden="true"></div>
+
+    <div class="bienvenida-contenido">
+      <p class="bienvenida-saludo" id="bienvenida-saludo">
+        Tengo una sorpresa para ti, mi amor ❤️
+      </p>
+
+      <div class="sobre" id="sobre" role="img" aria-label="Un sobre de regalo animado">
+        <div class="sobre-cuerpo">
+          <div class="sobre-tapa"></div>
+          <div class="sobre-frente"></div>
+          <div class="sobre-sello">❤</div>
+          <div class="sobre-corazon">♥</div>
+        </div>
+      </div>
+
+      <button type="button" class="boton boton-principal" id="btn-abrir">
+        Abrir mi sorpresa
+      </button>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTENIDO PRINCIPAL
+       ============================================================ -->
+  <div id="principal" class="principal oculto">
+
+    <!-- Corazones flotantes de fondo -->
+    <div class="corazones-fondo" id="corazones-fondo" aria-hidden="true"></div>
+
+    <!-- Botón de música discreto -->
+    <button type="button" class="boton-musica" id="btn-musica" aria-label="Reproducir o pausar música" title="Música">
+      <span class="icono-musica" aria-hidden="true">♪</span>
+      <span class="texto-musica" id="texto-musica">Música</span>
+    </button>
+    <audio id="audio-musica" loop preload="none">
+      <source src="assets/music/cancion.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- ======================= PORTADA ======================= -->
+    <header id="portada" class="portada seccion">
+      <div class="portada-estrellas" aria-hidden="true" id="estrellas"></div>
+
+      <p class="portada-fecha" id="portada-fecha">Hoy es un día muy especial</p>
+      <h1 class="portada-titulo">
+        ¡Feliz cumpleaños,<br>
+        <span class="nombre-novia" id="nombre-titulo">mi amor</span>!
+      </h1>
+      <p class="portada-subtitulo" id="portada-subtitulo">
+        En este día tan especial, quiero que sepas lo mucho que significas para mí.
+        Cada momento a tu lado es un regalo que atesoro con todo mi corazón.
+      </p>
+
+      <div class="contador" id="contador" aria-label="Cuenta atrás de celebración">
+        <div class="contador-bloque">
+          <span class="contador-valor" id="contador-dias">00</span>
+          <span class="contador-etiqueta">Días</span>
+        </div>
+        <div class="contador-separador" aria-hidden="true">:</div>
+        <div class="contador-bloque">
+          <span class="contador-valor" id="contador-horas">00</span>
+          <span class="contador-etiqueta">Horas</span>
+        </div>
+        <div class="contador-separador" aria-hidden="true">:</div>
+        <div class="contador-bloque">
+          <span class="contador-valor" id="contador-minutos">00</span>
+          <span class="contador-etiqueta">Min</span>
+        </div>
+        <div class="contador-separador" aria-hidden="true">:</div>
+        <div class="contador-bloque">
+          <span class="contador-valor" id="contador-segundos">00</span>
+          <span class="contador-etiqueta">Seg</span>
+        </div>
+      </div>
+      <p class="contador-leyenda" id="contador-leyenda">para celebrar juntos</p>
+
+      <a href="#historia" class="boton boton-secundario btn-bajar">
+        Ver nuestra historia ↓
+      </a>
+    </header>
+
+    <!-- ======================= NUESTRA HISTORIA ======================= -->
+    <section id="historia" class="historia seccion" aria-labelledby="historia-titulo">
+      <div class="seccion-contenido">
+        <h2 id="historia-titulo" class="seccion-titulo">Nuestra historia</h2>
+        <div class="linea-corazon" aria-hidden="true">♡ ♡ ♡</div>
+        <p class="seccion-texto">
+          Cada foto es un pedacito de nuestros momentos juntos.
+          Sustituye estas imágenes por las vuestras siguiendo las instrucciones del <code>README.md</code>.
+        </p>
+
+        <div class="polaroids" id="polaroids">
+          <!-- Los marcos se generan desde script.js con la configuración de CONFIG.fotos -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= CARTA ======================= -->
+    <section id="carta" class="carta-seccion seccion" aria-labelledby="carta-titulo">
+      <div class="seccion-contenido">
+        <h2 id="carta-titulo" class="seccion-titulo">Una carta para ti</h2>
+        <div class="linea-corazon" aria-hidden="true">♡ ♡ ♡</div>
+
+        <article class="carta" id="carta-bloque">
+          <div class="carta-decoracion" aria-hidden="true">❦</div>
+          <p class="carta-texto" id="carta-texto" aria-live="polite"></p>
+          <p class="carta-firma" id="carta-firma"></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ======================= SORPRESA FINAL ======================= -->
+    <section id="sorpresa" class="sorpresa seccion" aria-labelledby="sorpresa-titulo">
+      <div class="seccion-contenido">
+        <h2 id="sorpresa-titulo" class="seccion-titulo">Algo más para ti</h2>
+        <div class="linea-corazon" aria-hidden="true">♡ ♡ ♡</div>
+
+        <button type="button" class="boton boton-principal" id="btn-sorpresa">
+          Tengo algo más para ti 💌
+        </button>
+
+        <article class="tarjeta-final oculto" id="tarjeta-final" aria-live="polite">
+          <div class="tarjeta-final-interior">
+            <span class="tarjeta-corazon" aria-hidden="true">♥</span>
+            <p class="tarjeta-mensaje" id="tarjeta-mensaje"></p>
+            <p class="tarjeta-cierre" id="tarjeta-cierre">
+              Te amo. Feliz cumpleaños, mi vida ❤️
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ======================= PIE ======================= -->
+    <footer class="pie">
+      <p id="pie-texto">Hecho con amor ❤️</p>
+    </footer>
+  </div>
+
+  <!-- Lluvia de corazones (se inyecta dinámicamente) -->
+  <div class="lluvia-corazones" id="lluvia-corazones" aria-hidden="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
